@@ -3,7 +3,7 @@ import requests
 import json
 from datetime import datetime
 
-# Page configuration
+
 st.set_page_config(
     page_title="Customer Enquiry",
     page_icon="📝",
@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS for minimalist clean styling
+
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
@@ -214,7 +214,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Header section
 st.markdown("""
     <div class="header">
         <div class="small-title">✨ Get In Touch</div>
@@ -278,4 +277,4 @@ with st.form("n8n_form", clear_on_submit=False):
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# No footer needed for cleaner look
+
