@@ -10,6 +10,15 @@ It allows businesses to capture leads, trigger AI voice calls, and send follow-u
 
 ---
 
+## 🎬 Demo
+Listen to a sample AI agent call:
+
+[🎧 Play Demo Audio](.streamlit/demo.mp3)
+
+*Experience how our AI agent interacts with customers in real-time conversations.*
+
+---
+
 ## ✨ Features
 - Dynamic AI voice calls powered by Retell.
 - Personalized SMS follow-ups after calls.
@@ -36,7 +45,7 @@ It allows businesses to capture leads, trigger AI voice calls, and send follow-u
     ├── Webhook/Form Trigger
     └── HTTP Request → Retell API
         ↓
-[Retell Platform]
+[Agent Calls The User]
     ↓
 [AI Agent Voice Call + SMS Follow-up]
 ```
@@ -56,6 +65,7 @@ st.title("Book a Call with Our AI Agent")
 name = st.text_input("Full Name")
 email = st.text_input("Email Address")
 phone = st.text_input("Phone Number (with country code)")
+budget = st.text_input("Enter Budget")
 subject = st.text_area("How can we assist you?")
 
 if st.button("Submit"):
@@ -63,6 +73,7 @@ if st.button("Submit"):
         "Name": name,
         "Email": email,
         "Phone Number": phone,
+        "Budget":budget
         "Subject": subject
     }
     response = requests.post("https://your-n8n-domain/webhook/ai-agent-form", json=data)
@@ -90,6 +101,8 @@ streamlit run app.py
   "retell_llm_dynamic_variables": {
     "name": "{{ $json.Name }}",
     "email": "{{ $json.Email }}",
+    "phone number": "{{ $json['Phone Number'] }}",
+    "budget": "{{ $json.Budget }}",
     "subject": "{{ $json.Subject }}"
   },
   "override_agent_id": "agent_your_business_001"
