@@ -14,8 +14,8 @@ It allows businesses to capture leads, trigger AI voice calls, and send follow-u
 Listen to a sample AI agent call:
 
 <audio controls>
-  <source src=".streamlit/demo.mp3" type="audio/mpeg">
-  Your browser does not support the audio element. <a href=".streamlit/demo.mp3">Download the demo</a>
+  <source src="https://github.com/ANC-DOMINATER/voice-agent/raw/main/.streamlit/demo.mp3" type="audio/mpeg">
+  Your browser does not support the audio element. <a href="https://github.com/ANC-DOMINATER/voice-agent/blob/main/.streamlit/demo.mp3">Download the demo</a>
 </audio>
 
 *Experience how our AI agent interacts with customers in real-time conversations.*
