@@ -1,5 +1,9 @@
 # 🚀 AI Agent Call Automation – For Any Business
 
+[![Streamlit App](https://img.shields.io/badge/Streamlit-Live%20Demo-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://voice-agent-quantum-leap.streamlit.app)
+
+> **🤖 AI Agent Demo**: The agent is trained on Quantum Leap Learning Solutions Pvt Ltd knowledge base. Feel free to ask any questions about Quantum Leap Learning Solutions Pvt Ltd in the deployment!
+
 ## Overview
 This system automates customer calls and SMS follow-ups using **Streamlit**, **n8n**, and **Retell API**.  
 It allows businesses to capture leads, trigger AI voice calls, and send follow-up SMS messages automatically — all without manual intervention.

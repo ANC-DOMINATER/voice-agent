@@ -228,6 +228,7 @@ with st.form("n8n_form", clear_on_submit=False):
     name = st.text_input("Name *")
     email = st.text_input("Email *")
     phone = st.text_input("Phone Number", placeholder="Include +91")
+    budget = st.text_input("Budget")
     subject = st.text_input("Subject")
     
     submitted = st.form_submit_button("Get a Call")
@@ -246,6 +247,7 @@ with st.form("n8n_form", clear_on_submit=False):
                             "name": name,
                             "email": email,
                             "phoneNumber": phone,
+                            "budget": budget,
                             "subject": subject
                         },
                         headers={
