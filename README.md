@@ -11,11 +11,16 @@ It allows businesses to capture leads, trigger AI voice calls, and send follow-u
 ---
 
 ## 🎬 Demo
-Listen to a sample AI agent call:
 
-[🎧 Play Demo Audio](https://gabalpha.github.io/read-audio/?p=https://github.com/ANC-DOMINATER/voice-agent/raw/main/.streamlit/demo.mp3)
+<div align="center">
+  
+### Listen to a sample AI agent call:
+
+[![Play Demo Audio](https://img.shields.io/badge/▶️_Play_Demo_Audio-FF4B4B?style=for-the-badge&logo=audio&logoColor=white)](https://gabalpha.github.io/read-audio/?p=https://github.com/ANC-DOMINATER/voice-agent/raw/main/.streamlit/demo.mp3)
 
 *Experience how our AI agent interacts with customers in real-time conversations.*
+
+</div>
 
 ---
 
