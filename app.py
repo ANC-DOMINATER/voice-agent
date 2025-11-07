@@ -1,8 +1,5 @@
 import streamlit as st
 import requests
-import json
-from datetime import datetime
-
 
 st.set_page_config(
     page_title="Customer Enquiry",
@@ -226,20 +223,13 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# Main content container
-st.markdown('<div class="form-container">', unsafe_allow_html=True)
-
 # Custom form matching n8n fields
 with st.form("n8n_form", clear_on_submit=False):
-    name = st.text_input("Name *", placeholder="")
-    
-    email = st.text_input("Email *", placeholder="")
-    
+    name = st.text_input("Name *")
+    email = st.text_input("Email *")
     phone = st.text_input("Phone Number", placeholder="Include +91")
+    subject = st.text_input("Subject")
     
-    subject = st.text_input("Subject", placeholder="")
-    
-    st.markdown("<br>", unsafe_allow_html=True)
     submitted = st.form_submit_button("Get a Call")
     
     if submitted:
@@ -274,7 +264,4 @@ with st.form("n8n_form", clear_on_submit=False):
                     st.error(f"❌ Connection error: {str(e)}")
                 except Exception as e:
                     st.error(f"❌ Error: {str(e)}")
-
-st.markdown('</div>', unsafe_allow_html=True)
-
 

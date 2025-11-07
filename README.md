@@ -1,79 +1,121 @@
-# Customer Enquiry Form - Streamlit App
+# 🚀 AI Agent Call Automation – For Any Business
 
-A modern, responsive Streamlit application that embeds an n8n form for customer enquiries.
+## Overview
+This system automates customer calls and SMS follow-ups using **Streamlit**, **n8n**, and **Retell API**.  
+It allows businesses to capture leads, trigger AI voice calls, and send follow-up SMS messages automatically — all without manual intervention.
 
-## Features
+---
 
-- 🎨 Modern gradient design with glassmorphism effects
-- 📱 Fully responsive layout
-- 🚀 Easy to deploy and customize
-- 🔗 Seamlessly integrates n8n forms
+## ✨ Features
+- Dynamic AI voice calls powered by Retell.
+- Personalized SMS follow-ups after calls.
+- Scalable workflow adaptable to any business.
+- End-to-end automation using n8n and Streamlit.
 
-## Setup Instructions
+---
 
-### 1. Create a Python Virtual Environment
+## 🧩 Tech Stack
+| Component | Purpose |
+|------------|----------|
+| **Streamlit (Python)** | Frontend form for lead capture |
+| **n8n** | Workflow automation and API integration |
+| **Retell API** | AI voice calling and SMS follow-ups |
+| **AI Agent** | Your branded AI assistant for client engagement |
 
-```powershell
-# Navigate to the project directory
-cd "e:\DOM Dev\quantum leap"
+---
 
-# Create a virtual environment
-python -m venv venv
-
-# Activate the virtual environment
-.\venv\Scripts\Activate.ps1
-
-# If you get an execution policy error, run:
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+## 🧠 Architecture
+```
+[Streamlit Form]
+    ↓ (POST JSON)
+[n8n Workflow]
+    ├── Webhook/Form Trigger
+    └── HTTP Request → Retell API
+        ↓
+[Retell Platform]
+    ↓
+[AI Agent Voice Call + SMS Follow-up]
 ```
 
-### 2. Install Dependencies
+---
 
-```powershell
-pip install -r requirements.txt
+## ⚙️ Setup Steps
+
+### 1️⃣ Deploy Streamlit Form
+1. Create a form to collect user details:
+```python
+import streamlit as st
+import requests
+
+st.title("Book a Call with Our AI Agent")
+
+name = st.text_input("Full Name")
+email = st.text_input("Email Address")
+phone = st.text_input("Phone Number (with country code)")
+subject = st.text_area("How can we assist you?")
+
+if st.button("Submit"):
+    data = {
+        "Name": name,
+        "Email": email,
+        "Phone Number": phone,
+        "Subject": subject
+    }
+    response = requests.post("https://your-n8n-domain/webhook/ai-agent-form", json=data)
+    if response.status_code == 200:
+        st.success("Thank you! Our AI agent will reach out shortly.")
+    else:
+        st.error("Something went wrong. Please try again.")
 ```
 
-### 3. Run the Application
-
-```powershell
+2. Run your app:
+```bash
 streamlit run app.py
 ```
 
-The application will open in your default browser at `http://localhost:8501`
+---
 
-## Configuration
-
-To use your own n8n form, edit the `app.py` file and replace the iframe URL:
-
-```python
-src="https://n8n.yourdomain.com/forms/customer-enquiry"
+### 2️⃣ Configure n8n Workflow
+1. Create a Webhook Node or Form Trigger to receive form submissions.
+2. Connect it to an HTTP Request Node that calls Retell's API.
+3. Add the JSON payload:
+```json
+{
+  "from_number": "+14155550123",
+  "to_number": "{{ $json['Phone Number'] }}",
+  "retell_llm_dynamic_variables": {
+    "name": "{{ $json.Name }}",
+    "email": "{{ $json.Email }}",
+    "subject": "{{ $json.Subject }}"
+  },
+  "override_agent_id": "agent_your_business_001"
+}
 ```
+4. Add your Retell API Key as a Bearer Token in Headers.
 
-with your actual n8n form URL.
+---
 
-## Customization
+### 3️⃣ Setup Retell Platform
+1. Create your AI Agent (voice and persona).
+2. Configure:
+   - Virtual phone number (from_number)
+   - Follow-up SMS message
+   - API Key and Agent ID
+3. Optionally enable call transcripts or callback webhooks to log call data.
 
-You can customize the following in `app.py`:
+---
 
-- **Colors**: Modify the gradient in the CSS section
-- **Page Title**: Change the `page_title` in `st.set_page_config()`
-- **Header Text**: Update the header section markdown
-- **Form Height**: Adjust the `height` attribute in the iframe
+## 📊 Supported Industries
+| Industry | Example Use Case |
+|----------|------------------|
+| Real Estate | Follow up on property inquiries |
+| Education | Contact students about courses |
+| Finance | Onboard customers with AI support |
+| Healthcare | Schedule patient appointments |
+| SaaS | AI agent for demos and customer onboarding |
 
-## Deployment
+---
 
-This app can be deployed to:
-- Streamlit Cloud (free)
-- Heroku
-- AWS
-- Azure
-- Any Python-compatible hosting service
-
-## Requirements
-
-- Python 3.8 or higher
-- Streamlit 1.39.0
-
-## License
-
-MIT License
+## 💼 Credits
+Developed using **Streamlit**, **n8n**, and **Retell API**  
+Designed to empower businesses to automate voice-based customer engagement with AI.
