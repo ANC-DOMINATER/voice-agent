@@ -13,7 +13,10 @@ It allows businesses to capture leads, trigger AI voice calls, and send follow-u
 ## 🎬 Demo
 Listen to a sample AI agent call:
 
-[🎧 Play Demo Audio](.streamlit/demo.mp3)
+<audio controls>
+  <source src=".streamlit/demo.mp3" type="audio/mpeg">
+  Your browser does not support the audio element. <a href=".streamlit/demo.mp3">Download the demo</a>
+</audio>
 
 *Experience how our AI agent interacts with customers in real-time conversations.*
 
